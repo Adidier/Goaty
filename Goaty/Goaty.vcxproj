@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c4bd1a7c-05ac-4459-b3c9-10b5cd691fcc}</ProjectGuid>
-    <RootNamespace>GoatyProject</RootNamespace>
+    <ProjectGuid>{aa3e5c5f-ccde-4a16-8809-1ab5c221273d}</ProjectGuid>
+    <RootNamespace>Goaty</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GoatyProject.cpp" />
+    <ClCompile Include="Goaty.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
