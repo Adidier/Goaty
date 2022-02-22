@@ -54,8 +54,14 @@ void System::GetConfig()
     screenWidth = lua_tonumber(L, -1);
     lua_getglobal(L, "isFullScreen");
     isFullScreen = lua_toboolean(L, -1);
+    lua_getglobal(L, "configPlayer");
+    size_t len;
+    configPlayer = lua_tolstring(L, -1, &len);
 }
-
+std::string System::GetConfigPlayer()
+{
+    return configPlayer;
+}
 void System::Draw()
 {
     
