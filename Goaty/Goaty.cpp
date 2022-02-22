@@ -3,20 +3,23 @@
 #include "lua.hpp"
 #include <iostream>
 #include "System.h"
+#include "Image.h"
 
 int main(int argc, char* args[])
 {
-    System system;
-    system.Init();
+    System *system = System::GetPtr();
+    system->Init();
+    Image img;
+    img.Load("imagen.bmp");
 
-    while (system.Exit())
+    while (!system->Exit())
     {
-        system.Input();
-        system.ClearScreen();
+        system->Input();
+        system->ClearScreen();
+        system->RenderImage(&img, 0, 0);
 
 
-
-        system.RenderPresent();
+        system->RenderPresent();
     }
 
     return 0;

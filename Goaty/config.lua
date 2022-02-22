@@ -1,4 +1,4 @@
 height = 480
 width = 640
 
-isFullScreen = 0
+isFullScreen = false

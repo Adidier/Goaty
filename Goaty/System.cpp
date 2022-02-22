@@ -1,6 +1,26 @@
 #include "System.h"
 #include "LUA.hpp"
 
+System* System::ptr = nullptr;
+
+System::System()
+{
+}
+
+SDL_Renderer* System::GetRenderer()
+{
+    return renderer;
+}
+
+System* System::GetPtr()
+{
+    if (ptr == nullptr)
+    {
+        ptr = new System();
+    }
+    return ptr;
+}
+
 void System::Init()
 {
     GetConfig();
@@ -68,4 +88,15 @@ void System::Input()
             exit = true;
         }
     }
+}
+
+void System::RenderImage(Image* img, int x, int y)
+{
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = img->GetWidth();
+    dst.h = img->GetHeight();
+
+    SDL_RenderCopy(renderer, img->GetTexture(), NULL, &dst);
 }

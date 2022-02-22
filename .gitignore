@@ -32,3 +32,5 @@
 
 .vs
 Goaty/.vs
+/Goaty/Debug
+/Goaty/x64/Debug
