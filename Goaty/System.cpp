@@ -13,6 +13,10 @@ void System::Init()
     {
         window = SDL_CreateWindow("Goaty", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, GetWidth(), GetHeight(), SDL_WINDOW_SHOWN);
     }
+    if (window != nullptr)
+    {
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    }
 }
 
 void System::GetConfig()
@@ -37,7 +41,31 @@ void System::Draw()
     
 }
 
+void System::ClearScreen()
+{
+    SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x0, 0xFF);
+    SDL_RenderClear(renderer);
+}
+
+void System::RenderPresent()
+{
+    SDL_RenderPresent(renderer);
+}
+
+bool System::Exit()
+{
+    return exit;
+}
+
 void System::Input()
 {
-    
+    const Uint8 *keys = SDL_GetKeyboardState(NULL);
+    SDL_Event e;
+    while (SDL_PollEvent(&e))
+    {
+        if (e.type == SDL_KEYDOWN)
+        {
+            exit = true;
+        }
+    }
 }
