@@ -116,3 +116,21 @@ void System::RenderImage(Image* img, int x, int y)
 
     SDL_RenderCopy(renderer, img->GetTexture(), NULL, &dst);
 }
+
+
+void System::RenderImage(Image* img, int x, int y, int frameX, int frameY, int frameW, int frameH)
+{
+    SDL_Rect dst;
+    dst.x = x;
+    dst.y = y;
+    dst.w = frameW;
+    dst.h = frameH;
+
+    SDL_Rect src;
+    src.x = frameX;
+    src.y = frameY;
+    src.w = frameW;
+    src.h = frameH;
+
+    SDL_RenderCopy(renderer, img->GetTexture(), &src, &dst);
+}

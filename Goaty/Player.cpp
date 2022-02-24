@@ -26,9 +26,9 @@ void Player::Load()
     lua_getglobal(L, "imageRun");
     imagePathRun = lua_tostring(L, -1);
 
-    jump.Load(imagePathJump);
-    die.Load(imagePathDie);
-    run.Load(imagePathRun);
+    //jump.Load(imagePathJump,45,39,8);
+    //die.Load(imagePathDie);
+    run.Load(imagePathRun,45, 39, 8);
 
     currentState = &run;
 
@@ -39,7 +39,7 @@ void Player::Load()
 void Player::Draw()
 {
     auto sys = System::GetPtr();
-    sys->RenderImage(currentState, x, y);
+    run.Draw(0, 0);
 }
 
 void Player::Jump()

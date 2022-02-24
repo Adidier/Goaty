@@ -16,6 +16,7 @@ public:
     std::string GetConfigPlayer();
     std::string GetBackgroundFile();
     void RenderImage(Image* img, int x, int y);
+    void RenderImage(Image* img, int x, int y, int frameX, int frameY, int frameW, int frameH);
     SDL_Renderer* GetRenderer();
     static System* GetPtr();
 private:

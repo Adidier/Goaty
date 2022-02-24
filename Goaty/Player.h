@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Image.h"
+#include "Sprite.h"
 
 class Player
 {
@@ -21,9 +21,9 @@ private:
 	std::string imagePathDie;
 	std::string imagePathRun;
 
-	Image jump;
-	Image die;
-	Image run;
-	Image* currentState;
+	Sprite jump;
+	Sprite die;
+	Sprite run;
+	Sprite* currentState;
 };
 
