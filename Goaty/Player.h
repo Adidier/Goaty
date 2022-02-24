@@ -15,7 +15,7 @@ private:
     bool live = true;
 
 	std::string imageJump;
-	std::string PlayerDie;
-	std::string PlayerRun;
+	std::string imageDie;
+	std::string imageRun;
 };
 

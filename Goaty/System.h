@@ -14,6 +14,7 @@ public:
     bool Exit();
     void Input();
     std::string GetConfigPlayer();
+    std::string GetBackgroundFile();
     void RenderImage(Image* img, int x, int y);
     SDL_Renderer* GetRenderer();
     static System* GetPtr();
@@ -22,6 +23,7 @@ private:
     int screenWidth;
     int isFullScreen;
     std::string configPlayer;
+    std::string background;
     bool exit = false;
     SDL_Window* window;
     SDL_Renderer* renderer;

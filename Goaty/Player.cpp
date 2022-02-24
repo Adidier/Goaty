@@ -1,32 +1,30 @@
 #include "Player.h"
-
+#include "SDL.h"
+#include "System.h"
+#include "LUA.hpp"
 
 void Player::Load()
 {
- //   lua_State* L = luaL_newstate();
- //   luaL_openlibs(L);
- //   luaopen_base(L);
- //   luaopen_string(L);
- //   luaopen_math(L);
- //   luaL_loadfile(L, "config.lua");
- //   lua_pcall(L, 0, 0, 0);
- //   lua_getglobal(L, "height");
- //   screenHeight = lua_tonumber(L, -1);
- //   lua_getglobal(L, "width");
- //   screenWidth = lua_tonumber(L, -1);
- //   lua_getglobal(L, "isFullScreen");
- //   isFullScreen = lua_toboolean(L, -1);
- //   lua_getglobal(L, "configPlayer");
- //   size_t len;
- //   configPlayer = lua_tolstring(L, -1, &len);
+    auto sys = System::GetPtr();
+    lua_State* L = luaL_newstate();
+    luaL_openlibs(L);
+    luaopen_base(L);
+    luaopen_string(L);
+    luaopen_math(L);
+    luaL_loadfile(L, sys->GetConfigPlayer().c_str());
+    lua_pcall(L, 0, 0, 0);
 
-	//int hp = 100;
-	//int jump = 0;
-	//bool live = true;
+    lua_getglobal(L, "hp");
+    hp = lua_tonumber(L, -1);
 
-	//std::string imageJump;
-	//std::string PlayerDie;
-	//std::string PlayerRun;
+    lua_getglobal(L, "jump");
+    jump = lua_tonumber(L, -1);
+    lua_getglobal(L, "imageJump");
+    imageJump = lua_tostring(L, -1);
+    lua_getglobal(L, "imageDie");
+    imageDie = lua_tostring(L, -1);
+    lua_getglobal(L, "imageRun");
+    imageRun = lua_tostring(L, -1);
 }
 
 void Player::Jump()

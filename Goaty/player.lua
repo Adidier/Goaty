@@ -6,6 +6,7 @@ imageDie = "PlayerDie.png"
 imageRun = "PlayerRun.png"
 
 
+
 function GetCurrentPosition()
 
 end

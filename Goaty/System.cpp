@@ -57,7 +57,17 @@ void System::GetConfig()
     lua_getglobal(L, "configPlayer");
     size_t len;
     configPlayer = lua_tolstring(L, -1, &len);
+    
+    lua_getglobal(L, "background");
+    background = lua_tolstring(L, -1, &len);
+
 }
+
+std::string System::GetBackgroundFile()
+{
+    return background;
+}
+
 std::string System::GetConfigPlayer()
 {
     return configPlayer;
