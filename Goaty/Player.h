@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Image.h"
 
 class Player
 {
@@ -8,14 +9,21 @@ public:
     void Jump();
 	void GameOver();
 	void Respawn();
+	void Draw();
 
 private:
     int hp = 100;
-	int jump = 0;
+	int jumpValue = 0;
     bool live = true;
+	int x, y;
 
-	std::string imageJump;
-	std::string imageDie;
-	std::string imageRun;
+	std::string imagePathJump;
+	std::string imagePathDie;
+	std::string imagePathRun;
+
+	Image jump;
+	Image die;
+	Image run;
+	Image* currentState;
 };
 

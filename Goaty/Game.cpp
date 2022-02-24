@@ -11,6 +11,7 @@ void Game::Init()
 void Game::Draw()
 {
 	sys->RenderImage(&background, 0, 0);
+	player.Draw();
 }
 
 void Game::Update()

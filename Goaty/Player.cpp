@@ -18,13 +18,28 @@ void Player::Load()
     hp = lua_tonumber(L, -1);
 
     lua_getglobal(L, "jump");
-    jump = lua_tonumber(L, -1);
+    jumpValue = lua_tonumber(L, -1);
     lua_getglobal(L, "imageJump");
-    imageJump = lua_tostring(L, -1);
+    imagePathJump = lua_tostring(L, -1);
     lua_getglobal(L, "imageDie");
-    imageDie = lua_tostring(L, -1);
+    imagePathDie = lua_tostring(L, -1);
     lua_getglobal(L, "imageRun");
-    imageRun = lua_tostring(L, -1);
+    imagePathRun = lua_tostring(L, -1);
+
+    jump.Load(imagePathJump);
+    die.Load(imagePathDie);
+    run.Load(imagePathRun);
+
+    currentState = &run;
+
+    x = y = 0;
+
+}
+
+void Player::Draw()
+{
+    auto sys = System::GetPtr();
+    sys->RenderImage(currentState, x, y);
 }
 
 void Player::Jump()
