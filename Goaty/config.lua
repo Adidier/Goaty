@@ -1,7 +1,7 @@
-height = 480
-width = 640
+height = 640
+width = 800
 
 isFullScreen = false
 configPlayer = "player.lua"
 
-background = "imagen.bmp"
+background = "background.png"

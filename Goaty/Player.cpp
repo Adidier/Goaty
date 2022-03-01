@@ -28,7 +28,7 @@ void Player::Load()
 
     //jump.Load(imagePathJump,45,39,8);
     //die.Load(imagePathDie);
-    run.Load(imagePathRun,45, 39, 8);
+    run.Load(imagePathRun,180, 156, 6);
 
     currentState = &run;
 
@@ -39,7 +39,7 @@ void Player::Load()
 void Player::Draw()
 {
     auto sys = System::GetPtr();
-    run.Draw(0, 0);
+    run.Draw(340, 400);
 }
 
 void Player::Jump()
