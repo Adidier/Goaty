@@ -28,7 +28,7 @@ void Player::Load()
 
     //jump.Load(imagePathJump,45,39,8);
     //die.Load(imagePathDie);
-    run.Load(imagePathRun,180, 156, 6);
+    run.Load(imagePathRun,135, 117, 6);
 
     currentState = &run;
 
