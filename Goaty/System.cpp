@@ -61,6 +61,13 @@ void System::GetConfig()
     lua_getglobal(L, "background");
     background = lua_tolstring(L, -1, &len);
 
+
+    lua_getglobal(L, "keyJump");
+    std::string jump = lua_tolstring(L, -1, &len);
+    if (jump == "KEY_SPACE")
+    {
+        keyJump = ' ';
+    }
 }
 
 std::string System::GetBackgroundFile()
@@ -93,7 +100,7 @@ bool System::Exit()
     return exit;
 }
 
-void System::Input()
+char System::Input()
 {
     const Uint8 *keys = SDL_GetKeyboardState(NULL);
     SDL_Event e;
@@ -101,7 +108,13 @@ void System::Input()
     {
         if (e.type == SDL_KEYDOWN)
         {
-            exit = true;
+
+            if (e.key.keysym.sym == SDLK_ESCAPE)
+            {
+                exit = true;
+            }
+
+            return e.key.keysym.sym;
         }
     }
 }

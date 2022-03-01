@@ -17,6 +17,8 @@ private:
     bool live = true;
 	int x, y;
 
+	bool isJumping = false;
+
 	std::string imagePathJump;
 	std::string imagePathDie;
 	std::string imagePathRun;

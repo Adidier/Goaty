@@ -5,3 +5,5 @@ isFullScreen = false
 configPlayer = "player.lua"
 
 background = "background.png"
+
+keyJump = "KEY_SPACE"

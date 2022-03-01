@@ -18,3 +18,14 @@ void Game::Update()
 {
 
 }
+void Game::Input()
+{
+	char key = sys->Input();
+
+	if (key == ' ')
+	{
+		player.Jump();
+	}
+}
+
+

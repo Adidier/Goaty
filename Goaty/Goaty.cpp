@@ -14,8 +14,9 @@ int main(int argc, char* args[])
 
     while (!system->Exit())
     {
-        system->Input();
+       
         system->ClearScreen();
+        game.Input();
         game.Update();
         game.Draw();
         system->RenderPresent();

@@ -32,19 +32,24 @@ void Player::Load()
 
     currentState = &run;
 
-    x = y = 0;
+    x = 340;
+    y = 400;
 
 }
 
 void Player::Draw()
 {
     auto sys = System::GetPtr();
-    run.Draw(340, 400);
+    run.Draw(x, y);
+    if(isJumping)
+        y--;
+
 }
 
 void Player::Jump()
 {
-
+   
+    isJumping = true;
 }
 
 void Player::GameOver()

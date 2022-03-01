@@ -12,7 +12,7 @@ public:
     void ClearScreen();
     void RenderPresent();
     bool Exit();
-    void Input();
+    char Input();
     std::string GetConfigPlayer();
     std::string GetBackgroundFile();
     void RenderImage(Image* img, int x, int y);
@@ -25,6 +25,8 @@ private:
     int isFullScreen;
     std::string configPlayer;
     std::string background;
+
+    char keyJump;
     bool exit = false;
     SDL_Window* window;
     SDL_Renderer* renderer;
