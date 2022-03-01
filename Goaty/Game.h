@@ -1,13 +1,13 @@
 #pragma once
 #include "Player.h"
-#include "Image.h"
+#include "Background.h"
 #include "System.h"
 
 class Game
 {
 private:
 	Player player;
-    Image background;
+    Background background;
     System* sys;
 
    

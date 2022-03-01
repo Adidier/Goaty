@@ -3,14 +3,14 @@
 void Game::Init()
 {
 	sys = System::GetPtr();
-	background.Load(sys->GetBackgroundFile());
+	background.Load();
 
 	player.Load();
 }
 
 void Game::Draw()
 {
-	sys->RenderImage(&background, 0, 0);
+	background.Draw();
 	player.Draw();
 }
 
