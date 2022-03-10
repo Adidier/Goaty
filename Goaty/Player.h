@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Sprite.h"
+#include "Box.h"
 
 class Player
 {
@@ -10,13 +11,18 @@ public:
 	void GameOver();
 	void Respawn();
 	void Draw();
+	void Update();
+	Box GetBox();
+	void GetPosition(float& x, float& y);
 
 private:
     int hp = 100;
-	int jumpValue = 0;
+	float jumpValue = 0;
     bool live = true;
-	int x, y;
-
+	float x, y;
+	int w, h;
+	float time = 0;
+	Box box;
 	bool isJumping = false;
 
 	std::string imagePathJump;

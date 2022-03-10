@@ -25,9 +25,23 @@ void Player::Load()
     imagePathDie = lua_tostring(L, -1);
     lua_getglobal(L, "imageRun");
     imagePathRun = lua_tostring(L, -1);
+    lua_getglobal(L, "boxX");
+    box.x = lua_tonumber(L, -1);
+    lua_getglobal(L, "boxY");
+    box.y = lua_tonumber(L, -1);
+    lua_getglobal(L, "boxW");
+    box.w = lua_tonumber(L, -1);
+    lua_getglobal(L, "boxH");
+    box.h = lua_tonumber(L, -1);
+    lua_getglobal(L, "x");
+    x = lua_tonumber(L, -1);
+    lua_getglobal(L, "y");
+    y = lua_tonumber(L, -1);
+    lua_getglobal(L, "w");
+    w = lua_tonumber(L, -1);
+    lua_getglobal(L, "h");
+    h = lua_tonumber(L, -1);
 
-    //jump.Load(imagePathJump,45,39,8);
-    //die.Load(imagePathDie);
     run.Load(imagePathRun,135, 117, 6);
 
     currentState = &run;
@@ -37,13 +51,28 @@ void Player::Load()
 
 }
 
+void Player::Update()
+{
+    if (isJumping && time < jumpValue)
+    {
+        time += 1.5;
+        y = y - 1.5;
+        if (time >= jumpValue)
+        {
+            time = 0;
+            isJumping = false;
+        }
+    }
+    else if (!isJumping && y < 400)
+    {
+        y = y + 1;
+    }
+}
+
 void Player::Draw()
 {
     auto sys = System::GetPtr();
     run.Draw(x, y);
-    if(isJumping)
-        y--;
-
 }
 
 void Player::Jump()
@@ -60,4 +89,15 @@ void Player::GameOver()
 void Player::Respawn()
 {
 
+}
+
+Box Player::GetBox()
+{
+    return box;
+}
+
+void Player::GetPosition(float& x, float& y)
+{
+    x = this->x;
+    y = this->y;
 }

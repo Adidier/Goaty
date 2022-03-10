@@ -1,0 +1,11 @@
+imgPath = "Enemy.png"
+x = 1000 
+y = 400
+boxX = 6
+boxY = 36
+boxW = 20
+boxH = 20
+velocity = 0.3
+frames = 8
+w = 55
+h = 67
