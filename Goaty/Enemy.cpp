@@ -30,7 +30,7 @@ void Enemy::Load()
     box.x = lua_tonumber(L, -1);
 
     lua_getglobal(L, "boxY");
-    box.y = x+lua_tonumber(L, -1);
+    box.y = lua_tonumber(L, -1);
 
     lua_getglobal(L, "boxW");
     box.w = lua_tonumber(L, -1);

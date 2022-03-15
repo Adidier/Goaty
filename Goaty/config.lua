@@ -7,3 +7,5 @@ configPlayer = "player.lua"
 background = "background.png"
 
 keyJump = "KEY_SPACE"
+
+numberEnemies = 20

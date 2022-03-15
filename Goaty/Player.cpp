@@ -51,7 +51,8 @@ void Player::Load()
 
 }
 
-void Player::Update()
+void Player::Update() //Examen arreglar el salto
+//exponer el salto a una funcion de LUA
 {
     if (isJumping && time < jumpValue)
     {

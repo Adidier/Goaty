@@ -7,7 +7,7 @@ void Game::Init()
 
 	player.Load();
 
-	enemy.Load();
+	enemy.Load(); //Examen crear un vector de enemigos y leer del archivo de configuracion cuantos enemigos se van a mostrar
 }
 
 void Game::Draw()
@@ -24,19 +24,24 @@ void Game::Update()
 	float playerX, playerY;
 	auto obj1 = player.GetBox();
 	player.GetPosition(playerX, playerY);
+
 	obj1.x += playerX;
-	obj1.y += playerY;
+	obj1.w += obj1.x;
+
 	float enemyX, enemyY;
 	auto obj2 = enemy.GetBox();
-	obj2.x += playerX;
-	obj2.y += playerY;
+	enemy.GetPosition(enemyX, enemyY);
+
+	obj2.x += enemyX;
+	obj2.w += obj2.x;
+
 	if (IsColliding(obj1, obj2))
 	{
 		player.Respawn();
 	}
 }
 
-bool Game::IsColliding(Box obj1, Box obj2)
+bool Game::IsColliding(Box obj1, Box obj2) //Examen arreglar
 {
 	//Derecha player - izquierda enemy
 	if(obj1.x + obj1.w > obj2.x && obj1.x < obj2.x + obj2.w && obj1.y + obj1.h > obj2.y && obj1.y < obj2.y + obj2.h)
